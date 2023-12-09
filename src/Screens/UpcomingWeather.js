@@ -9,6 +9,7 @@ import {
   ImageBackground,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ListItem from '../Components/ListItem';
 const DATA = [
   {
     dt_txt: '2023-12-09',
@@ -60,33 +61,21 @@ const DATA = [
   },
 ];
 
-const Item = props => {
-  const {dt_txt, min, max, condition} = props;
-  return (
-    <View style={styles.item}>
-      <Icon name="sun-o" size={50} color="black" />
-      <Text style={styles.date}>{dt_txt}</Text>
-      <Text style={styles.temp}>{min}</Text>
-      <Text style={styles.temp}>{max}</Text>
-    </View>
-  );
-};
-
 const UpcomingWeather = () => {
   const renderItem = ({item}) => (
-    <Item
+    <ListItem
       condition={item.weather[0].main}
       dt_txt={item.dt_txt}
       min={item.main.temp_min}
       max={item.main.temp_max}
     />
   );
-
+const {container,image}=styles;
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={container}>
       <ImageBackground
         source={require('../../assets/background.jpg')}
-        style={styles.image}>
+        style={image}>
         <Text>UpcomingWeather</Text>
         <FlatList
           data={DATA}
@@ -101,27 +90,10 @@ const UpcomingWeather = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // marginTop: StatusBar.currentHeight || 0,
+    marginTop: StatusBar.currentHeight || 0,
     backgroundColor: 'royalblue',
   },
-  item: {
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    borderWidth: 5,
-    backgroundColor: 'orange',
-  },
-  temp: {
-    color: 'white',
-    fontSize: 20,
-  },
-  date: {
-    color: 'white',
-    fontSize: 15,
-  },
+
   image: {
     flex: 1,
   },
