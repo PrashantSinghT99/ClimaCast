@@ -11,7 +11,7 @@ const Tabs = ({ weather }) => {
         <Tab.Navigator
             screenOptions={{
                 tabBarActiveTintColor: 'tomato',
-                tabBarInactiveTintColor: 'grey',
+                tabBarInactiveTintColor: 'gray',
                 tabBarStyle: {
                     backgroundColor: 'lightblue',
                 },

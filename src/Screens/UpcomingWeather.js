@@ -5,7 +5,6 @@ import {
   FlatList,
   ImageBackground,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import ListItem from '../Components/ListItem';
 // const DATA = [
 //   {
@@ -59,6 +58,7 @@ import ListItem from '../Components/ListItem';
 // ];
 
 const UpcomingWeather = ({weatherData}) => {
+  // console.log(weatherData);
   const renderItem = ({item}) => (
     <ListItem
       condition={item.weather[0].main}
@@ -74,7 +74,7 @@ const {container,image}=styles;
         source={require('../../assets/background.jpg')}
         style={image}>
         <FlatList
-          data={DATA}
+          data={weatherData}
           renderItem={renderItem}
           keyExtractor={item => item.dt_txt}
         />
@@ -89,7 +89,6 @@ const styles = StyleSheet.create({
     // marginTop: StatusBar.currentHeight || 0,
     backgroundColor: 'royalblue',
   },
-
   image: {
     flex: 1,
   },
