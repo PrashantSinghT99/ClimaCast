@@ -27,7 +27,7 @@ export const useGetWeather = () => {
     const fetchWeatherData = async () => {
         try {
             const res = await fetch(
-                `http://api.openweathermap.org/data/2.5/forecast?lat=${currentLocation.latitude}&lon=${currentLocation.longitude}&appid=${API_KEY}`,
+                `http://api.openweathermap.org/data/2.5/forecast?lat=${currentLocation.latitude}&lon=${currentLocation.longitude}&appid=${API_KEY}&units=metric`,
             );
             const data = await res.json();
             // console.log(data);

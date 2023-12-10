@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Feather from 'react-native-vector-icons/Feather';
 
 const Tab = createBottomTabNavigator();
-const Tabs = () => {
+const Tabs = ({ weather }) => {
     return (
         <Tab.Navigator
             screenOptions={{
@@ -17,18 +17,17 @@ const Tabs = () => {
                 },
                 headerStyle: {
                     backgroundColor: 'lightblue',
-                
+
                 },
                 headerTitleStyle: {
                     fontWeight: 'bold',
                     fontSize: 25,
                     color: "tomato",
-                 
+
                 }
             }}>
             <Tab.Screen
                 name="Current"
-                component={CurrentWeather}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Feather
@@ -37,10 +36,11 @@ const Tabs = () => {
                             color={focused ? 'tomato' : 'black'}></Feather>
                     ),
                 }}
-            />
+            >
+                {() => <CurrentWeather weatherData={weather.list[0]} />}
+            </Tab.Screen>
             <Tab.Screen
                 name="Upcoming"
-                component={UpcomingWeather}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Feather
@@ -49,7 +49,9 @@ const Tabs = () => {
                             color={focused ? 'tomato' : 'black'}></Feather>
                     ),
                 }}
-            />
+            >
+                {() => <UpcomingWeather weatherData={weather.list} />}
+            </Tab.Screen>
             <Tab.Screen
                 name="City"
                 component={City}
