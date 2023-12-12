@@ -1,6 +1,5 @@
 import React from 'react'
 import {Text, View, StyleSheet} from 'react-native';
-import Feather from 'react-native-vector-icons/Feather';
 const RowText = (props) => {
     const {messageOne,messageTwo,containerStyles,messageOneStyles,messageTwoStyles}= props;
   return (
@@ -12,6 +11,7 @@ const RowText = (props) => {
 }
 
 const styles=StyleSheet.create({
+
 
 })
 export default RowText

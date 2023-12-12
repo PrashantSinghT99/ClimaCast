@@ -16,15 +16,15 @@ const Tabs = ({ weather }) => {
                     backgroundColor: 'lightblue',
                 },
                 headerStyle: {
-                    backgroundColor: 'lightblue',
-
+                    backgroundColor: 'lightblue',    
                 },
                 headerTitleStyle: {
                     fontWeight: 'bold',
                     fontSize: 25,
                     color: "tomato",
-
-                }
+                    margin: 'auto'
+                },
+                headerTitleAlign: 'center'
             }}>
             <Tab.Screen
                 name="Current"

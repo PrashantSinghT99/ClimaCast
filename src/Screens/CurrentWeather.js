@@ -38,7 +38,7 @@ const CurrentWeather = ({ weatherData }) => {
           messageTwoStyles={highLow}></RowText>
       </View>
       <RowText
-        messageOne={weather[0]?.description}
+        messageOne={weather[0]?.description.toUpperCase()}
         messageTwo={weatherType[weatherCondition]?.message}
         containerStyles={bodyWrapper}
         messageOneStyles={description}
@@ -57,18 +57,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tempStyles: {
-    color: 'black',
+    color: 'white',
     fontSize: 48,
   },
   feels: {
     fontSize: 30,
-    color: 'black',
+    color: 'white',
   },
   highLowWrapper: {
     flexDirection: 'row',
   },
   highLow: {
-    color: 'black',
+    color: 'white',
     fontSize: 20,
   },
   bodyWrapper: {
@@ -77,8 +77,8 @@ const styles = StyleSheet.create({
     paddingLeft: 25,
     marginBottom: 40,
   },
-  description: { fontSize: 43 },
-  message: { fontSize: 25 },
+  description: { fontSize: 43 , color:"white"},
+  message: { fontSize: 25, color:"#DC143C", },
 });
 
 export default CurrentWeather;

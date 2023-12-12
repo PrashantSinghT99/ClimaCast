@@ -5,11 +5,11 @@ import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import {useGetWeather} from './src/Hooks/useGetWeather';
 import ErrorItem from './src/Components/ErrorItem';
 const App = () => {
-  const {weather, loading, error} = useGetWeather();
-  //console.log(weather, loading, error);
+  const [weather, loading, error] = useGetWeather();
+  console.warn(weather)
   if (weather && weather.list && !loading) {
     return (
-      <NavigationContainer>
+      <NavigationContainer style={styles.navigation}>
         <Tabs weather={weather} />
       </NavigationContainer>
     );
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     flex: 1,
-  },
+  }
 });
 
 export default App;
