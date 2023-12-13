@@ -6,7 +6,7 @@ import {useGetWeather} from './src/Hooks/useGetWeather';
 import ErrorItem from './src/Components/ErrorItem';
 const App = () => {
   const [weather, loading, error] = useGetWeather();
-  console.warn(weather)
+  // console.warn(weather)
   if (weather && weather.list && !loading) {
     return (
       <NavigationContainer style={styles.navigation}>
